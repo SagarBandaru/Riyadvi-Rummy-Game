@@ -99,14 +99,15 @@
 <button class="quit-button" onclick="openModal()" style="position: fixed; bottom: 10px; right: 10px;">Exit</button>
 
 <div id="quitModal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <p>Do you want to exit the game?</p>
-        <div class="quit-button-container">
-            <button id="yes-button" onclick="confirmQuit()">Yes</button>
-            <button id="no-button" onclick="closeModal()">No</button>
-        </div>
-    </div>
+  <div class="modal-content">
+      <p class="modal-text">Do you really want to end this game?</p>
+      <div class="quit-button-container">
+          <button id="yes-button" onclick="confirmQuit()">Yes</button>
+          <button id="no-button" onclick="closeModal()">No</button>
+      </div>
+  </div>
 </div>
+
 
     <div class="icon-spinner restart-button" title="Restart Game" id="restartButton"></div>
     <div class="help-button" title="Instructions" id="helpButton">?</div>

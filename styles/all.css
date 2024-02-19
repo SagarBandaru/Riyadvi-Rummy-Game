@@ -584,44 +584,36 @@ body {
 }
 
 .quit-button:hover {
-  background-color: #e60000; /* Darker red on hover */
+  background-color: #e60000; 
 }
 
-
- 
-
-
-
-
-
-
-
-
-
-
-/* Add this style to your existing CSS file or create a new one if needed */
-.modal {
+#quitModal {
   display: none;
   position: fixed;
-  top: 10%;
-  left: 10%;
-  transform: translate(0%, 0%);
-  padding: 10px;
- background-color: none;
-  z-index: 1;
-  max-width: 200px;
-  width: auto;
-  background-image: url('../images/wood1.jpg');
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  width: 80%;
+  text-align: center;
+  padding: 20px;
 }
 
-.modal-content {
-  text-align: center;
+#quitModal .modal-content {
+  color: #333; /* Ensure the text color is not the same as the background */
+}
+
+#quitModal .modal-text {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .quit-button-container {
-  margin-left: 100%;
-  margin-top: 10px;
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .quit-button-container button {
@@ -630,18 +622,26 @@ body {
   cursor: pointer;
 }
 
-#yes-button {
-  background-color: #ff3333;
+.quit-button-container #yes-button {
+  background-color: #3494E6;
   color: #fff;
-  margin-left: -5%;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-#no-button {
-  background-color: #4CAF50;
-  color: #fff;
+.quit-button-container #yes-button:hover {
+  background-color: #3080C4;
 }
 
-.modal-content p {
-  font-size: 14px;
-  margin-bottom: 10px;
+.quit-button-container #no-button {
+  background-color: #FD746C;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.quit-button-container #no-button:hover {
+  background-color: #FC5C7D;
 }
