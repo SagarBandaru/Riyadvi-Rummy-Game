@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Rummy</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-image: linear-gradient(to right, #3494E6, #EC6EAD);
+            color: #fff;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        #play-button {
+            display: inline-block;
+            padding: 10px;
+            background-color: #FD746C;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 8%;
+            overflow: hidden;
+        }
+
+        #play-button img {
+            width: 140px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        #play-button:hover {
+            background-color: #FC5C7D;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, #3494E6, #EC6EAD);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-image: linear-gradient(to right, #3494E6, #EC6EAD);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            color: #333;
+        }
+
+        .close-button {
+            background-color: #FD746C;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .close-button:hover {
+            background-color: #FC5C7D;
+        }
+
+        h2 {
+            color: #eee;
+        }
+
+        #myModal p {
+            margin-bottom: 10px;
+        }
+
+        #myModal p:last-child {
+            margin-bottom: 20px;
+        }
+
+        #loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../images/wood1.jpg');
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .progress-bar-container {
+            position: relative;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #111;
+            border-radius: 10px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: attr(data-label);
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translateX(var(--width, 0));
+            color: white;
+            width: 100%;
+            height: 100%;
+            background-color: #3494E6;
+            transition: transform 2s linear; 
+        }
+
+        #loading-text {
+            color: #030303;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Online Rummy!</h1>
+    <h2>Click on Rummy to start playing the game!</h2>
+    <a id="play-button" href="#" onclick="openModal()">
+        <img src="images/rummy-game.webp" alt="Play Now">
+    </a>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p>Get rid of all your cards before your opponent does.</p>
+            <p>You get rid of cards by forming a "set" or a "run".</p>
+            <p>A set is 3 or more cards that are the same rank.</p>
+            <p>Example: (6 of spades, 6 of hearts, and 6 of diamonds)</p>
+            <p>A run is 3 or more cards of the same suit that are ordered with no gaps.</p>
+            <p>Example: (9 of hearts, 10 of hearts, Jack of hearts)</p>
+            <p>When you have a set or run in your hand it will be taken from your hand and laid down on the table automatically.</p>
+            <p>Either player can then add to the sets or runs which have already been laid down.</p>
+            <p>Once a player has laid down all of their cards, the other player's cards are scored.</p>
+            <a class="close-button" href="#" onclick="closeModal()">Got It!</a>
+        </div>
+    </div>
+    <div id="loading-overlay">
+        <div class="progress-bar-container">
+            <div class="progress-bar" style="--width: 100%" data-label="Loading..." id="loading-progress"></div>
+        </div>
+        <div id="loading-text">100%</div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = 'flex';
+        }
+    
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+            showLoadingOverlay();
+        }
+    
+        function showLoadingOverlay() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+    
+            let progress = 0;
+            let loadingProgress = document.getElementById('loading-progress');
+            let loadingText = document.getElementById('loading-text');
+    
+            function updateLoadingText() {
+                loadingText.innerText = `${Math.round(progress)}%`;
+            }
+    
+            function incrementProgress() {
+                progress += 1;
+                loadingProgress.style.setProperty('--width', `${progress}%`);
+                updateLoadingText();
+    
+                if (progress >= 100) {
+                    setTimeout(function () {
+                        document.getElementById('loading-overlay').style.display = 'none';
+                        window.location.href = 'rummy.html';
+                    }, 500);
+                } else {
+                    requestAnimationFrame(incrementProgress);
+                }
+            }
+    
+            requestAnimationFrame(incrementProgress);
+        }
+    </script>
+    
+</body>
+
+</html>
