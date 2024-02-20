@@ -1,29 +1,25 @@
-function progress() {
-    var percent = document.querySelector('.percent');
-    var progress = document.querySelector('.progress');
-    var text = document.querySelector('.text');
-    var count = 4;
-    var per = 16;
-    var loading = setInterval(animate, 50);
-  
-    function animate() {
-      if (count == 100 && per == 400) {
-        percent.classList.add("text-blink");
-        text.style.display = "block";
-        clearInterval(loading);
-  
-       
-        setTimeout(function () {
-          window.location.href = 'rummy.html';
-        }, 1000); 
-      } else {
-        per = per + 4;
-        count = count + 1;
-        progress.style.width = per + 'px';
-        percent.textContent = count + '%';
-      }
+let countNumber = document.querySelector("#number");
+let svgCircle = document.querySelector(".svg-circle");
+
+let number = 0;
+
+// Function to redirect to rummy.html
+function redirectToRummy() {
+    window.location.href = "rummy.html";
+}
+
+// Update the progress bar and check for completion
+function updateProgressBar() {
+    if (number === 100) {
+        clearInterval(progressInterval);
+        // Add any additional actions you want to perform after the progress is complete
+        // For example, you can call the function to redirect to rummy.html
+        redirectToRummy();
+    } else {
+        number += 1;
+        countNumber.innerHTML = `${number}%`;
     }
-  }
-  
-  progress();
-  
+}
+
+// Set up interval for updating progress bar
+let progressInterval = setInterval(updateProgressBar, (2000 / 80));

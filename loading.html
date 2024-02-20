@@ -1,18 +1,32 @@
+<!-- -------------------- HTML -------------------- -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Loading Animation</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <!----------------- link css ------------------->
     <link rel="stylesheet" href="styles/loading.css">
-  </head>
-  <body>
-    <div class="loading">
-      <div class="percent">100%</div>
-       <label class="text"></label>
-      <div class="progress-bar">
-        <div class="progress"></div>
-      </div>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="outer-cercle">
+            <div class="inner-cercle">
+                <span id="number">80%</span>
+            </div>
+        </div>
+        <svg class="svg" width="200" height="200" xmlns="htmp://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="svgColor">
+                    <stop offset="0%" stop-color="#ff5f6d"></stop>
+                    <stop offset="100%" stop-color="#ffc371"></stop>
+                </linearGradient>
+            </defs>
+            <circle class="svg-circle" cx="100" cy="100" r="85"></circle>
+        </svg>
     </div>
+
+<!----------------- link java script ------------------->
     <script src="scripts/loading.js"></script>
-  </body>
+</body>
 </html>
