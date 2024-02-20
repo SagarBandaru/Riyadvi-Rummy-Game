@@ -573,14 +573,17 @@ body {
   content: "\41";
 }
 .quit-button {
-  background-color: #ff4c4c; /* Red background color */
-  color: #fff; /* White text color */
+  /* background-color: #ff4c4c;  */
+  background-image: url('../images/wood.jpg');
+  color: #090909; /* White text color */
   padding: 10px 20px; /* Adjust padding as needed */
   font-size: 16px; /* Adjust font size as needed */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px; /* Adjust margin as needed */
+  margin-top: 10px;
+  font-size: larger;
+  font-weight: bolder; /* Adjust margin as needed */
 }
 
 .quit-button:hover {
