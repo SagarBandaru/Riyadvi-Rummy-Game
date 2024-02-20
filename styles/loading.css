@@ -1,43 +1,47 @@
 /*-------------------- CSS --------------------*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 body {
     min-height: 100vh;
-    background: hsl(223, 17%, 24%);
-    display: grid;
-    place-items: center;
+    background: linear-gradient(90deg, hsl(223, 17%, 24%), hsl(223, 17%, 30%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 }
+
 .wrapper {
     position: relative;
 }
+
 .outer-cercle {
     width: 200px;
-    aspect-ratio: 1;
-    box-shadow: 
-        7px 7px 10px hsl(223, 17%, 19%),
-        -7px -7px 10px hsl(223, 17%, 29%)
-    ;
+    height: 200px;
     border-radius: 50%;
-    display: grid;
-    place-items: center;
+    background: radial-gradient(circle, hsl(223, 17%, 29%), hsl(223, 17%, 24%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
+
 .inner-cercle {
     width: 140px;
-    aspect-ratio: 1;
-    box-shadow: 
-       inset 7px 7px 10px hsl(223, 17%, 19%),
-       inset  -7px -7px 10px hsl(223, 17%, 29%)
-    ;
+    height: 140px;
     border-radius: 50%;
-    display: grid;
-    place-items: center;
+    background: radial-gradient(circle, hsl(223, 17%, 19%), hsl(223, 17%, 29%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     font-weight: bold;
     font-size: 2em;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2) inset;
 }
 
 .svg {
@@ -45,18 +49,19 @@ body {
     left: 0;
     top: 0;
 }
+
 .svg-circle {
     fill: none;
     stroke: url(#svgColor);
     stroke-width: 30px;
-    stroke-dasharray: 535;
-    stroke-dashoffset: 535;
+    stroke-dasharray: 535; /* Set to the circumference of the circle */
+    stroke-dashoffset: 535; /* Set to the circumference of the circle initially to hide it */
     stroke-linecap: round;
     animation: anime 2s linear forwards;
 }
 
 @keyframes anime {
     100% {
-        stroke-dashoffset: 107;
+        stroke-dashoffset: 0; /* Set to 0 to reveal the entire circle */
     }
-}   
+}
