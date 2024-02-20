@@ -1,99 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading</title>
-    <style>
-        
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url('/images/wood.jpg');   
-}
-
-#loading-overlay {
-    text-align: center;
-}
-
-.progress-bar-container {
-    position: relative;
-    width: 300px;
-    margin-bottom: 10px;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 20px;
-    background-color: #111;
-    border-radius: 10px;
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.progress-bar::before {
-    content: attr(data-label);
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: translateX(var(--width, 0));
-    color: white;
-    width: 100%;
-    height: 100%;
-    background-color: #3494E6;
-    transition: transform 2s linear;
-}
-
-#loading-text {
-    color: #030303;
-    font-size: 16px;
-}
-
-    </style>
-</head>
-
-<body>
-    <div id="loading-overlay">
-        <div class="progress-bar-container">
-            <div class="progress-bar" style="--width: 100%" data-label="Loading..." id="loading-progress"></div>
-        </div>
-        <div id="loading-text">100%</div>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Loading Animation</title>
+    <link rel="stylesheet" href="styles/loading.css">
+  </head>
+  <body>
+    <div class="loading">
+      <div class="percent">100%</div>
+       <label class="text"></label>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
     </div>
-
-    <script>
-        let progress = 0;
-        let loadingProgress = document.getElementById('loading-progress');
-        let loadingText = document.getElementById('loading-text');
-
-        function updateLoadingText() {
-            loadingText.innerText = `${Math.round(progress)}%`;
-        }
-
-        function incrementProgress() {
-            progress += 1;
-            loadingProgress.style.setProperty('--width', `${progress}%`);
-            updateLoadingText();
-
-            if (progress >= 100) {
-                setTimeout(function () {
-                    window.location.href = 'rummy.html';
-                }, 500);
-            } else {
-                requestAnimationFrame(incrementProgress);
-            }
-        }
-
-        requestAnimationFrame(incrementProgress);
-    </script>
-</body>
-
+    <script src="scripts/loading.js"></script>
+  </body>
 </html>
