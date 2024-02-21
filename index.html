@@ -8,91 +8,98 @@
     <title>Welcome to Rummy</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-image: url('images/one.jpg'); 
-            background-size: cover; 
-            background-position: center;
-            margin: 0;
-        }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-image: url('images/one.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+}
 
-        h1 {
-            font-size: 2em;
-            margin-bottom: 30px;
-        }
+h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #12c155;
+    
+}
 
-        #play-button {
-            display: inline-block;
-            padding: 10px;
-            background-color: #FD746C;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 8%;
-            overflow: hidden;
-        }
+#play-button {
+    display: inline-block;
+    padding: 10px;
+    background-color: #FD746C;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 8%;
+    overflow: hidden;
+}
 
-        #play-button img {
-            width: 140px;
-            height: auto;
-            border-radius: 50%;
-        }
+#play-button img {
+    width: 140px;
+    height: auto;
+    border-radius: 50%;
+}
 
-        #play-button:hover {
-            background-color: #FC5C7D;
-        }
+#play-button:hover {
+    background-color: #FC5C7D;
+}
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(to right, #3494E6, #EC6EAD);
-            /* background-image: url('images/one.jpg');  */
-            justify-content: center;
-            align-items: center;
-        }
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/one.jpg'); /* Set the background image */
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
 
-        .modal-content {
-            background-image: linear-gradient(to right, #3494E6, #EC6EAD);
-            /* background-image: url('images/one.jpg');  */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            text-align: left;
-            color: #333;
-        }
+body.modal-open .modal {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.9);
+}
 
-        .close-button {
-            background-color: #FD746C;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+.modal-content {
+    background-color: rgb(24, 160, 160);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    color: #0e0d0d;
+}
 
-        .close-button:hover {
-            background-color: #FC5C7D;
-        }
+.close-button {
+    background-color: #FD746C;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        h2 {
-            color: #eee;
-        }
+.close-button:hover {
+    background-color: #FC5C7D;
+}
 
-        #myModal p {
-            margin-bottom: 10px;
-        }
+h2 {
+    color: #fff;
+}
 
-        #myModal p:last-child {
-            margin-bottom: 20px;
-        }      
+#myModal p {
+    margin-bottom: 10px;
+}
+
+#myModal p:last-child {
+    margin-bottom: 20px;
+}
+    
     </style>
 </head>
 
