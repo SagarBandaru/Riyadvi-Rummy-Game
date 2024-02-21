@@ -53,7 +53,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/one.jpg'); /* Set the background image */
+    background-image: url('images/one.jpg');
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -99,6 +99,13 @@ h2 {
 #myModal p:last-child {
     margin-bottom: 20px;
 }
+.close-button img {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    margin-right: 5px; /* Add some spacing to the right of the image */
+    vertical-align: middle; /* Align the image vertically to the middle */
+}
+
     
     </style>
 </head>
@@ -121,7 +128,11 @@ h2 {
             <p>When you have a set or run in your hand it will be taken from your hand and laid down on the table automatically.</p>
             <p>Either player can then add to the sets or runs which have already been laid down.</p>
             <p>Once a player has laid down all of their cards, the other player's cards are scored.</p>
-            <a class="close-button" href="#" onclick="closeModal()">Got It!</a>
+            <!-- <a class="close-button" href="#" onclick="closeModal()">Got It!</a> -->
+            <a class="close-button" href="#" onclick="closeModal()">
+                <!-- Replace the text with an image -->
+                <img src="images/gotit.jpg" alt="Got It!">
+            </a>
         </div>
     </div>
   
