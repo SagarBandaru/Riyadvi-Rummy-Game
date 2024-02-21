@@ -191,10 +191,16 @@
     <script type="text/javascript" src="scripts/game.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
     <script>
-      function confirmQuit() {
-        window.location.href = "index.html";
-      }
+     function confirmQuit() {
 
+  App.restartGame();
+
+  localStorage.setItem('restartGame', 'true');
+
+
+  closeModal();
+  window.location.href = "index.html";
+}
       function openModal() {
         document.getElementById("quitModal").style.display = "block";
       }

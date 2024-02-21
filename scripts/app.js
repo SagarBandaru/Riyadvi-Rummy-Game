@@ -1,6 +1,4 @@
-/* global Card, Game, states, Player, FastClick, Modernizr, domMap */
- 
-var app = {
+  var app = {
   computerGoesFirst: false,
   game: Game.createGame(),
   handsCenteredOn: 0.5,
@@ -200,6 +198,19 @@ var App = {
     else {
       Game.deal(app.game);
     }
+    var restartGameFlag = localStorage.getItem('restartGame');
+  if (restartGameFlag === 'true') {
+    // Clear the flag
+    localStorage.removeItem('restartGame');
+    App.restartGame();
+
+    // Redirect to "index.html" after a short delay
+    // setTimeout(function () {
+    //   window.location.href = "index.html";
+    // }, 500); // Adjust the delay as needed
+    // return;
+  }
+
   },
 
   updateScoreDOM: function() {
